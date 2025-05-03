@@ -1,0 +1,1 @@
+proj_data_entry is a simple web application designed to manage personal data entries. It allows users to create, read, update, and delete (CRUD) information such as names, addresses, and provinces. This project serves as a foundational exercise in building CRUD applications and is ideal for those looking to understand the basics of web development.
