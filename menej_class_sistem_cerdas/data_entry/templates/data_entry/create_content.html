@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="alert alert-warning" role="alert">
+    Entry Konten
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div class="alert alert-warning" role="alert">
+    Daftar Konten
+</div>
+
+<table class="table table-bordered" id="content_tbl">
+    <thead>
+        <tr>
+            <th scope="col">Pengguna</th>
+            <th scope="col">Artikel</th>
+            <th scope="col">Tanggal Create</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for content in list_content %}
+        <tr class="record">
+            <td><label>{{ content.author.email }}</label></td>
+            <td><label>{{ content.artikel }}</label></td>
+            <td><label>{{ content.data_created|date:"d-m-Y H:i" }}</label></td>
+
+            <td>
+                <a href="{% url 'data_entry:view_content' content.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'data_entry:update_content' content.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{% url 'data_entry:delete_content' content.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin hapus konten ini?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'data_entry',
     'crispy_forms',
     'crispy_bootstrap4',
+    
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"

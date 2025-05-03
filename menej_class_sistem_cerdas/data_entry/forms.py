@@ -35,4 +35,4 @@ class PenggunaForm(forms.ModelForm):
 class ContentForm(forms.ModelForm):
     class Meta:
         model = Content
-        fields = '__all__'
+        fields = ['author', 'artikel', 'set_view']

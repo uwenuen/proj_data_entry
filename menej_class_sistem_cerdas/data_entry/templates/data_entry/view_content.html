@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="alert alert-info">Detail Konten</div>
+<p><strong>Pengguna:</strong> {{ content.author.email }}</p>
+<p><strong>Artikel:</strong> {{ content.artikel }}</p>
+<p><strong>Dibuat:</strong> {{ content.data_created|date:"d-m-Y H:i" }}</p>
+<a href="{% url 'data_entry:set_content' %}" class="btn btn-secondary">Kembali</a>
+{% endblock %}

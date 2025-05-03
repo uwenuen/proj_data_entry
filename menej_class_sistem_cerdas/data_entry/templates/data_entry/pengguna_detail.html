@@ -10,9 +10,9 @@
 <script>
     // JavaScript code to fetch and display user details
     document.addEventListener("DOMContentLoaded", function () {
-        var userId = {{ user_id }};
+        var userId = "{{ user_id }}";  // Diperbaiki: user_id dibungkus tanda kutip agar jadi string valid
 
-        fetch(`/api/pengguna/${userId}/`) // Assuming you have an API endpoint to fetch user details
+        fetch(`/api/pengguna/${userId}/`) // Pastikan endpoint ini sesuai dengan views.py kamu
             .then(response => response.json())
             .then(data => {
                 var userDetailsDiv = document.getElementById('user-details');
